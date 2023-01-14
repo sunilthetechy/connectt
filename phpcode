@@ -1,0 +1,62 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['name'])){
+   header('location:login.php');
+}
+
+if(isset($_POST['update'])){
+    echo "Entered Update Branch<br>";
+   $name =  $_POST['name'];
+   $phone = $_POST['phone'];
+   $about = $_POST['about'];
+   $dob = $_POST['dob'];
+   $year=$_POST['year'];
+   $campus = $_POST['campus'];
+   $branch = $_POST['branch'];
+   $talent = $_POST['talent'];
+   $address = $_POST['address'];
+   $igurl = $_POST['igurl'];
+   $fburl = $_POST['fburl'];
+   $lnurl = $_POST['lnurl'];
+   $phone = $_POST['phone'];
+   $email=$_SESSION['email'];
+   echo "Stored Variables<br>";
+   echo $phone.$name.$about.$dob.$year.$campus.$branch.$talent.$address.$igurl.$fburl.$lnurl;
+   echo $email;
+   $select_1 = "UPDATE users SET name='$name',about='$about',talent='$talent',campus='$campus',branch='$branch',year='$year',address='$address',instagram='$igurl',facebook='$fburl',linkedin='$lnurl' WHERE email='$email'";
+   $result_1 = mysqli_query($conn, $select_1);
+   if($result_1){
+    echo "details updated";
+   }
+   else{
+    echo "details not updated";
+   }
+   $select_2 = " SELECT * FROM users WHERE email = '$email'";
+   $result_2 = mysqli_query($conn, $select_2);
+   echo "Query Executed<br>";
+   if(mysqli_num_rows($result_2) > 0){
+    $row = mysqli_fetch_array($result_2);
+    echo $row['name'];
+    echo $row['phone'];
+
+    $_SESSION['name'] = $row['name'];
+    $_SESSION['phone'] = $row['phone'];
+    $_SESSION['pwd']=$row['password'];
+    $_SESSION['about'] = $row['about'];
+    $_SESSION['campus'] = $row['campus'];
+    $_SESSION['branch']=$row['branch'];
+    $_SESSION['talent'] = $row['talent'];
+    $_SESSION['address'] = $row['address'];
+    $_SESSION['igurl'] = $row['instagram'];
+    $_SESSION['fburl']=$row['facebook'];
+    $_SESSION['lnurl'] = $row['linkedin'];
+    echo "Session Values Updated";
+   }
+   else{
+    echo "Session Values Not Updated";
+   }
+}

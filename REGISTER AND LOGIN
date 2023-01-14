@@ -1,0 +1,70 @@
+
+
+
+<?php
+ 
+ $conn = mysqli_connect('localhost','root','sunilyadav999VNS@','connectt');
+if($conn){
+    // echo "Connection Established<br>";
+}
+else{
+    echo "Connection Failed<br>";
+}
+if(isset($_POST['submit'])){
+ $name = mysqli_real_escape_string($conn, $_POST['name']);
+ $email = mysqli_real_escape_string($conn, $_POST['email']);
+ $pass = md5($_POST['password']);
+ $cpass = md5($_POST['cpassword']);
+ $phone = $_POST['phone'];
+
+
+$select = " SELECT * FROM users WHERE email = '$email' && password = '$pass';";
+
+   $result = mysqli_query($conn, $select);
+
+   if(mysqli_num_rows($result) > 0){
+
+      $error_user = 'user already exist!';
+
+   }else{
+      if($pass != $cpass){
+         $error_pwd = 'password not matched!';
+      }else{
+         $insert = "INSERT INTO users(name,email,phone,password) VALUES('$name','$email','$phone','$pass');";
+         $query=mysqli_query($conn, $insert);
+         if($query){
+            $success="Account Created Successfully";
+            header('location:home-loggedin.php');
+         }
+      }
+   }
+  }
+
+  session_start();
+
+if(isset($_POST['login'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = md5($_POST['password']);
+   $cpass = md5($_POST['cpassword']);
+   $phone = $_POST['phone'];
+
+   $select = " SELECT * FROM users WHERE email = '$email' && password = '$pass' ";
+
+   $result = mysqli_query($conn, $select);
+
+   if(mysqli_num_rows($result) > 0){
+
+      $row = mysqli_fetch_array($result);
+         $_SESSION['name'] = $row['name'];
+         $_SESSION['email'] = $row['email'];
+         $_SESSION['phone'] = $row['phone'];
+         header('home-loggedin.php');
+   }else{
+      $error_login = 'incorrect email or password!';
+   }
+
+};
+
+ ?>

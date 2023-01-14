@@ -1,0 +1,162 @@
+*{
+    margin:0px;
+    padding: 0px;
+    
+    
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+nav{
+    box-shadow: 5px #ffcb00;
+}
+#menu{
+    font-size: larger;
+}
+#buttons{
+    float: right;
+}
+#btn-signup{
+    background-color: #ff6150;
+    color: white;
+    width: auto;
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+}
+#btn-login{
+    background-color: #f8aa4b;
+    color: white;
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.container .row-1 .col-sm-4 p{
+    color:black;
+    font-weight: 500;
+}
+.container .row-2 .col-sm-6 p{
+    color:black;
+    font-weight: 500;
+}
+.container .row-1 .col-sm-4 h2{
+    color:#ff6150;
+    font-weight: 600;
+}
+.container .row-2 .col-sm-6 h2{
+    color:#ff6150;
+    font-weight: 600;
+}
+.container .row-2 .row-1 h2{
+    color:#ff6150;
+}
+#btn-joinnow{
+    background-color: #ffcb00;
+}
+#btn-joinnow:hover{
+    color:#ff6150;
+}
+#homesection1{
+    margin-top:40%;
+}
+#section1{
+    margin-bottom:150px;
+}
+p{
+    text-align: center;
+}
+/* i{
+    background-color: #ffcb00;
+    border-radius: 50%;
+    border: 1px solid #ffcb00;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+} */
+i{
+    background-color: #072448;
+    border-radius: 50%;
+    border: #ffcb00 1px solid;
+    padding: 50px 50px 50px 50px;
+    color: white;
+    text-align: center;
+    font-size: 100px;
+}
+
+.container .row-2 i{
+    margin-left: 150px;
+}
+#card-img{
+    border: #072448 1px solid;
+}
+#btn1{
+    background-color: #072448;
+    color: white;
+    border: #072448 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+}
+span{
+    color: blue;
+}
+
+#count1{
+    padding:50px 50px 50px 50px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+#icon-count{
+    background-color: white;
+    border: white;
+    color: #ff6150;
+    margin-left: -50px;
+    text-align: left;
+}
+footer{
+    background-color: #2a5d9c;
+    padding-top: 10px;
+    color: white;
+    font-weight: 400;
+}
+/* #copyrights{
+    background-color: #2a5d9c;
+    margin: 0px;
+} */
+#footer-up{
+    background-color: #2a5d9c;
+    margin-top: -50px;
+    width:100%;
+    padding-top:60px ;
+    border-top-left-radius: 60%;
+}
+li{
+    color: white;
+    font-weight:400;
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+
+}
+#links{
+    margin-left: 35px;
+}
+#register{
+    width: 50%;
+    height: 50%;
+}
+#login{
+    width: 50%;
+    height: 50%;
+}
+#hibtn{
+    display:block;
+    width: 100%;
+}
+#login{
+    width: 100%;
+    height: 500px;
+}
